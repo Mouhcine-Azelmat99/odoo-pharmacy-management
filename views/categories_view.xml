@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+     <record id="view_category_list_tree" model="ir.ui.view">
+        <field name="name">category.list.tree</field>
+        <field name="model">pharmacy.product.category</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="desc"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_category_list_form" model="ir.ui.view">
+        <field name="name">category.list.form</field>
+        <field name="model">pharmacy.product.category</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="desc"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_categories_list" model="ir.actions.act_window">
+        <field name="name">Categories List</field>
+        <field name="res_model">pharmacy.product.category</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="view_category_list_tree"/>
+    </record>
+
+
+    <menuitem id="menu_categories" name="Categories" action="action_categories_list" parent="menu_pharmacie"/>
+
+</odoo>

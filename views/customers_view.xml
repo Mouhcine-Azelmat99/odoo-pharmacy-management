@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    
+  <record id="view_customer_list_tree" model="ir.ui.view">
+        <field name="name">order.list.tree</field>
+        <field name="model">pharmacy.product.order</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+    
+
+<!-- Action to link the views -->
+
+    <record id="action_customer_list" model="ir.actions.act_window">
+        <field name="name">Customers</field>
+        <field name="res_model">res.partner</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="view_customer_list_tree"/>
+    </record>
+
+    <menuitem id="menu_customers" name="Customers" action="action_customer_list" parent="menu_pharmacie"/>
+
+</odoo>
